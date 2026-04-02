@@ -75,7 +75,11 @@ ifneq ($(CONFIG_EXTRA_TARGET_ARCH),)
 endif
 
 HOST_CONFIGURE_VARS += \
-	acx_cv_cc_gcc_supports_ada=false
+	acx_cv_cc_gcc_supports_ada=false \
+	ac_cv_func_fseeko64=no \
+	ac_cv_func_ftello64=no \
+	ac_cv_have_decl_fseeko64=no \
+	ac_cv_have_decl_ftello64=no
 
 define Host/Prepare
 	$(call Host/Prepare/Default)
