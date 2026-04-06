@@ -250,8 +250,12 @@ ifndef DUMP
   endif
 endif
 
+ifeq ($(CONFIG_EXTERNAL_TOOLCHAIN),)
 TARGET_LINKER?=bfd
+endif
+ifneq ($(TARGET_LINKER),)
 TARGET_LDFLAGS+= -fuse-ld=$(TARGET_LINKER)
+endif
 
 TARGET_PATH_PKG:=$(STAGING_DIR)/host/bin:$(STAGING_DIR_HOSTPKG)/bin:$(TARGET_PATH)
 
